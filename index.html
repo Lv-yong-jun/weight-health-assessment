@@ -48,7 +48,7 @@ input[type="number"]:focus{border-color:#4a90d9}
   </div>
   <div class="progress-bar"><div class="progress-fill" id="progress" style="width:8%"></div></div>
   <div id="question-area"></div>
-  <button class="btn-primary" id="next-btn" onclick="window.nextQuestion()">开始测评</button>
+  <button class="btn-primary" id="next-btn">开始测评</button>
 </div>
 
 <script>
@@ -185,6 +185,10 @@ window.showResult = function() {
   document.getElementById("next-btn").style.display = "none";
   document.getElementById("progress").style.width = "100%";
 };
+
+document.getElementById('next-btn').addEventListener('click', function() {
+  window.nextQuestion();
+});
 
 renderQuestion();
 </script>
