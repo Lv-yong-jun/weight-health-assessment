@@ -21,7 +21,7 @@ input[type="number"]{width:100%;padding:10px 12px;border:2px solid #e0e0e0;borde
 input[type="number"]:focus{border-color:#4a90d9}
 .unit{font-size:13px;color:#888;margin-left:4px}
 .btn-primary{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#4a90d9,#5ba0e0);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;margin-top:12px;transition:all 0.2s;box-shadow:0 4px 14px rgba(74,144,217,0.3);text-decoration:none;text-align:center;line-height:1.5}
-.btn-primary:active{transform:scale(0.98)}
+.btn:active{transform:scale(0.98)}
 .progress-bar{height:4px;background:#e0e0e0;border-radius:2px;margin-bottom:16px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,#4a90d9,#5ba0e0);border-radius:2px;transition:width 0.3s}
 .result-box{background:linear-gradient(135deg,#e8f8f0,#d4f0e8);border-radius:12px;padding:18px;margin:14px 0;text-align:center}
@@ -144,7 +144,7 @@ window.showResult = function() {
   if(!praise) praise = "✅ 您愿意花时间关注自己的健康状况，这份健康意识非常值得肯定！";
 
   var suggestions = "";
-  if(bmi && bmi>=24) suggestions += "• 您的BMI为 <span style="color:#4a90d9;font-weight:600">"+bmi+"</span>，稍微超出健康范围（18.5-23.9），通过科学管理可以很好地改善。";
+  if(bmi && bmi>=24) suggestions += '\u2022 \u60a8\u7684BMI\u4e3a <span style="color:#4a90d9;font-weight:600">'+bmi+'</span>\uff0c\u7a0d\u5fae\u8d85\u51fa\u5065\u5eb7\u8303\u56f4\uff0c\u901a\u8fc7\u79d1\u5b66\u7ba1\u7406\u53ef\u4ee5\u5f88\u597d\u5730\u6539\u5584\u3002';
   if(waist && waist>=85) suggestions += "<br>• 腰围 "+waist+"cm，腹部脂肪略多，这会稍微增加代谢压力，不过好消息是腹部脂肪是最容易通过科学方法减掉的！";
   if(dietIdx>=2) suggestions += "<br>• 饮食节奏稍微有些不规律，调整饮食结构就能看到明显变化。";
   if(exIdx>=2) suggestions += "<br>• 运动频率偏低，每周增加2-3次中等强度运动会有很好的效果。";
@@ -153,9 +153,9 @@ window.showResult = function() {
 
   var solution = "";
   if(bmiLevel>=3) {
-    solution = "您目前体重健康，建议：<br>• 保持现有饮食和运动习惯<br>• 定期监测体重变化（建议每周1次）<br>• 可考虑体验我们的45天体重管理方案，进一步优化身体成分";
+    solution = '\u60a8\u76ee\u524d\u4f53\u91cd\u5065\u5eb7\uff0c\u5efa\u8bae\uff1a<br>\u2022 \u4fdd\u6301\u73b0\u6709\u996e\u98df\u548c\u8fd0\u52a8\u4e60\u60ef<br>\u2022 \u5b9a\u671f\u76d1\u6d4b\u4f53\u91cd\u53d8\u5316\uff08\u5efa\u8bae\u6bcf\u54681\u6b21\uff09<br>\u2022 \u53ef\u8003\u8651\u4f53\u9a8c\u6211\u4eec\u768445\u5929\u4f53\u91cd\u7ba1\u7406\u65b9\u6848\uff0c\u8fdb\u4e00\u6b65\u4f18\u5316\u8eab\u4f53\u6210\u5206';
   } else {
-    solution = "针对您的情况，我建议采取<span style="color:#4a90d9;font-weight:600">科学、温和、可持续</span>的体重管理方案：<br><br><strong>🌟 推荐方案：45天科学体重管理计划</strong><br>• 不节食、不剧烈运动，温和可持续<br>• 调整身体代谢，建立健康生活习惯<br>• 专业顾问1对1跟进，确保效果<br>• 平均减重8-15斤，腰围明显缩小<br><br>不少朋友参加后反馈：不仅体重降了，睡眠、精力也明显改善！";
+    solution = '\u9488\u5bf9\u60a8\u7684\u60c5\u51b5\uff0c\u6211\u5efa\u8bae\u91c7\u53d6<span style="color:#4a90d9;font-weight:600">\u79d1\u5b66\u3001\u6e29\u548c\u3001\u53ef\u6301\u7eed</span>\u7684\u4f53\u91cd\u7ba1\u7406\u65b9\u6848\uff1a<br><br><strong>\u2605 \u63a8\u8350\u65b9\u6848\uff1a45\u5929\u79d1\u5b66\u4f53\u91cd\u7ba1\u7406\u8ba1\u5212</strong><br>\u2022 \u4e0d\u8282\u98df\u3001\u4e0d\u5267\u70c8\u8fd0\u52a8\uff0c\u6e29\u548c\u53ef\u6301\u7eed<br>\u2022 \u8c03\u6574\u8eab\u4f53\u4ee3\u8c22\uff0c\u5efa\u7acb\u5065\u5eb7\u751f\u6d3b\u4e60\u60ef<br>\u2022 \u4e13\u4e1a\u987e\u95ee1\u5bf91\u8ddf\u8fdb\uff0c\u786e\u4fdd\u6548\u679c<br>\u2022 \u5e73\u5747\u51cf\u91cd8-15\u65a4\uff0c\u8170\u56f4\u660e\u663e\u7f29\u5c0f<br><br>\u4e0d\u5c11\u670b\u53cb\u53c2\u52a0\u540e\u53cd\u9988\uff1a\u4e0d\u4ec5\u4f53\u91cd\u964d\u4e86\uff0c\u7761\u7720\u3001\u7cbe\u529b\u4e5f\u660e\u663e\u6539\u5584\uff01';
   }
 
   var html = '<div class="result-box">'+
